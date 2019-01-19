@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mortsruya/myChallenge/issues"
   },
-  "homepage": "https://github.com/mortsruya/myChallenge#readme"
+  "homepage": "https://github.com/mortsruya/myChallenge#readme",
+  "dependencies": {
+    "strip-ansi": "^5.0.0"
+  }
 }
