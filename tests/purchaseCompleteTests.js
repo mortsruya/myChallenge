@@ -14,7 +14,7 @@ const purchaseCompletePage = new PurchaseCompletePage()
 
 
 
-fixture `Purchase complete tests`
+fixture `PurchaseCompleteTests`
     .page `https://master--ncapp3.netlify.com/`
 
 
@@ -33,8 +33,9 @@ test('(#48,49) see my receipt and finish', async t => {
     await paymentMethodPage.payWithValidCreditCard(paymentMethodPage.masterCard)
     await t.wait(20000)
     await t
+        .takeScreenshot('PurchaseCompleteTests/purchaseComplete.png');
         .expect(purchaseCompletePage.purchaseCompleteMsg.exists).ok()
-        .expect(purchaseCompletePage.addressDisplayed.zipcode.innerText).eql(shippingDetails.zipcode)
+        .expect(purchaseCompletePage.addressDisplayed.zipcode.innerText).eql(shippingDetails.zipcode, addressDisplayed)
         .expect(purchaseCompletePage.addressDisplayed.city.innerText).eql(shippingDetails.city)
         .expect(purchaseCompletePage.addressDisplayed.street.innerText).eql(shippingDetails.street)
         .expect(purchaseCompletePage.addressDisplayed.apartmentDetails.innerText).eql(shippingDetails.apartmentDetails)
