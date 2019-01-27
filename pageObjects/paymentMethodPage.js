@@ -21,8 +21,8 @@ export default class PaymentMethodPage {
         this.creditCardExpirationIframe = Selector('#braintree-hosted-field-expirationDate')
         this.creditCardCvvIframe = Selector('#braintree-hosted-field-cvv')
 
-        this.paypalTab = Selector('.payment__paypal');
-    	this.creditCardTab = Selector('.payment__visa');
+        this.paypalTab = Selector('.payment__paypal')
+    	this.creditCardTab = Selector('.payment__visa')
     	this.cardNumberInput = Selector('#credit-card-number')
     	this.dateExpirationInput = Selector('#expiration')
     	this.cvvInput = Selector('#cvv')
