@@ -4,7 +4,7 @@
   "description": "hi",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "testcafe chrome:headless tests/**/* -r xunit:/tmp/test-results/res.xml"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,9 @@
   "homepage": "https://github.com/mortsruya/myChallenge#readme",
   "dependencies": {
     "strip-ansi": "^5.0.0"
+  },
+  "devDependencies": {
+    "testcafe": "^0.23.3",
+    "testcafe-reporter-xunit": "^2.1.0"
   }
 }
