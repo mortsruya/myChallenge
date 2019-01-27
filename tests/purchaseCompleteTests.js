@@ -29,6 +29,7 @@ test('(#48,49) see my receipt and finish', async t => {
     await paymentMethodPage.payWithValidCreditCard(paymentMethodPage.masterCard)
     await t.wait(20000)
     await t
+        .maximizeWindow()
         .expect(purchaseCompletePage.purchaseCompleteMsg.exists).ok()
         .expect(purchaseCompletePage.addressDisplayed.zipcode.innerText).eql(shippingDetails.zipcode)
         .expect(purchaseCompletePage.addressDisplayed.city.innerText).eql(shippingDetails.city)
