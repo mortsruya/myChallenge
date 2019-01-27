@@ -4,7 +4,7 @@ export default class BasePage {
 
     constructor() {
         this.backButton = Selector('.back-button')
-        this.xButton = Selector('[uid=nacButton__close]')
+        this.xButton = Selector('[uid=navButton__close]')
     }
 
     async getNaturalCycleUrl() {

@@ -10,18 +10,29 @@ export default class ShippingAddressPage {
     	this.apartmentDetailsInput = Selector('[uid=address__addressTwo__input]')
     	this.fullNameInput = Selector('[uid=address__fullName__input]')
     	this.continueButton = Selector('[uid=deliveryPage__continue__button]')
+        this.countryList = Selector('[uid=address__country__list]')
+        this.selectedCountry = Selector('[uid=address__country__list] > div')
     }
 
-    async enterShippingAddress(zipcode,city,steet,apartmentDetails,fullName){
-    	await t
-        	.typeText(this.zipcodeInput, zipcode)
-        	.click(this.showDeliveryTimeButton)
-        	.typeText(this.cityInput,city)
-        	.typeText(this.steetInput,steet)
-        	.typeText(this.apartmentDetailsInput,apartmentDetails)
-        	.typeText(this.fullNameInput,fullName)
-        	.click(this.continueButton)
+    async enterShippingAddress(iZipcode,iCity,iSteet,iApartmentDetails,iFullName){
+    	let shippingDetails = {
+            zipcode:iZipcode, 
+            city:iCity, 
+            street:iSteet, 
+            apartmentDetails:iApartmentDetails, 
+            fullName:iFullName
+        }
+        await this.enterShippingAddress(shippingDetails)
     }
-
+    async enterShippingAddressObj(shippingDetails){
+        await t
+            .typeText(this.zipcodeInput, shippingDetails.zipcode)
+            .click(this.showDeliveryTimeButton)
+            .typeText(this.cityInput,shippingDetails.city)
+            .typeText(this.steetInput,shippingDetails.street)
+            .typeText(this.apartmentDetailsInput,shippingDetails.apartmentDetails)
+            .typeText(this.fullNameInput,shippingDetails.fullName)
+            .click(this.continueButton)
+    }
 
 }

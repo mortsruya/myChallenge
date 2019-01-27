@@ -27,19 +27,29 @@ export default class PaymentMethodPage {
     	this.dateExpirationInput = Selector('#expiration')
     	this.cvvInput = Selector('#cvv')
     	this.addAndPay = Selector('[uid=payment__pay__button]')
+        this.masterCard = {
+            number: "5555555555554444",
+            expirationDate: "1225",
+            cvv: "123"
+        }
 
+        this.visa = {
+            number: "4005519200000004",
+            expirationDate: "1226",
+            cvv: "123"
+        }
     }
 
     async payWithValidCreditCard(creditCard){
-    	this.enterCreditCardDetails(creditCard);
+    	await this.enterCreditCardDetails(creditCard);
         await t.click(this.addAndPay)
     }
 
     async enterCreditCardDetails(creditCard){
         await t.click(this.creditCardTab)
-        this.enterCreditCardNumber(creditCard.number)
-        this.enterCreditCardExpirationDate(creditCard.expirationDate)
-        this.enterCreditCardCvv(creditCard.cvv)
+        await this.enterCreditCardNumber(creditCard.number)
+        await this.enterCreditCardExpirationDate(creditCard.expirationDate)
+        await this.enterCreditCardCvv(creditCard.cvv)
     }
     async enterCreditCardNumber(creditCardNum){
         await t
@@ -61,14 +71,22 @@ export default class PaymentMethodPage {
     }
 
 
-    async navigateToPaymentMethodPage(){
+    async navigateToPaymentMethodPageDef(){
+        await this.navigateToPaymentMethodPage(
+            'mail' + new Date().getTime() + '@gmail.com',
+            '123456',
+            {zipcode:"11557", city:"city", street:"street", apartmentDetails:"door", fullName:"fullName"}
+        )
+    }
+
+    async navigateToPaymentMethodPage(email,password,shippingDetails){
         await introPage.clickCreateAccountButton()
-        await createAccountPage.createAccount('mail' + new Date().getTime() + '@gmail.com',"123456")
+        await createAccountPage.createAccount(email,password)
         await eulaPage.clickAcceptTerms()
         //TODO: remove when i know how to init the reachable email before the test
         await unreachableEmailPage.confirmEmailUnreachable()
         await subscriptionPlansPage.selectAnnualPlan()
-        await shippingAddressPage.enterShippingAddress("11557","city","street","door","fullName")
+        await shippingAddressPage.enterShippingAddressObj(shippingDetails)
     }
 
 }
