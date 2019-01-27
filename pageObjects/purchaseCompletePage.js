@@ -13,13 +13,13 @@ export default class PurchaseCompletePage {
     constructor() {
     	this.purchaseCompleteMsg = Selector('[tmd=payment-purchase-complete]')
     	this.addressDisplayed = {
-    		zipcode: Selector('.displayAddress > span > :nth-child(5)'), 
-    		city: Selector('.displayAddress > span > :nth-child(4)'), 
-    		street: Selector('.displayAddress > span > :nth-child(3)'), 
-    		apartmentDetails: Selector('.displayAddress > span > :nth-child(2)'), 
-    		fullName: Selector('.displayAddress > span > :nth-child(1)')
+    		zipcode: Selector('.displayAddress > span > p').nth(4), 
+    		city: Selector('.displayAddress > span > p').nth(3), 
+    		street: Selector('.displayAddress > span > p').nth(2),
+    		apartmentDetails: Selector('.displayAddress > span  > p').nth(1), 
+    		fullName: Selector('.displayAddress > span > p').nth(0),
     	}
-    	this.countryDisplayed = Selector('.displayAddress > :nth-child(2)')
+    	this.countryDisplayed = Selector('.displayAddress > div').nth(1)
     	this.finishButton = Selector('[uid=orderPage__finish__button]')
     	this.seeMyReceiptButton = Selector('[uid=orderPage__seeMyReceipt__button]')
     }
