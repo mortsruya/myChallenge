@@ -7,9 +7,7 @@ export default class CreateAccoutPage {
     	this.receiveEmailsCheckBox = Selector('#checkbox-2-0')
     	this.passwordInput = Selector('[type=password]')
     	this.emailInput = Selector('[type=email]')
-
     }
-
 
     async typeEmail(email){ 
     	await t.typeText(this.emailInput, email)	

@@ -14,7 +14,7 @@ const purchaseCompletePage = new PurchaseCompletePage()
 
 
 
-fixture `Payment method page tests`
+fixture `Purchase complete tests`
     .page `https://master--ncapp3.netlify.com/`
 
 
