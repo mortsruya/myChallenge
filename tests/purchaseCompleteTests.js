@@ -3,7 +3,7 @@ import { Selector } from 'testcafe';
 import PaymentMethodPage from'../pageObjects/paymentMethodPage';
 import PurchaseCompletePage from '../pageObjects/purchaseCompletePage';
 import BasePage from '../pageObjects/basePage';
-import OrderSummaryPage from '../pageObjects/OrderSummaryPage';
+import OrderSummaryPage from '../pageObjects/orderSummaryPage';
 import ThantsItPage from '../pageObjects/thatsItPage';
 
 const thantsItPage = new ThantsItPage()

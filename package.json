@@ -4,7 +4,7 @@
   "description": "hi",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome:headless tests/**/* -r xunit:/tmp/test-results/res.xml"
+    "test": "testcafe chrome:headless tests/* -r xunit:/tmp/test-results/res.xml"
   },
   "repository": {
     "type": "git",
