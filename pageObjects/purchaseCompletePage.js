@@ -13,7 +13,7 @@ export default class PurchaseCompletePage {
     constructor() {
     	this.purchaseCompleteMsg = Selector('[tmd=payment-purchase-complete]');
     	this.addressDisplayed = {
-    		zipcode: Selector('.displayAddress > span > p').nth(4), 
+    		zipcode: Selector('.displayAddress').find('span').find('p').child(4), 
     		city: Selector('.displayAddress > span > p').nth(3),  
     		street: Selector('.displayAddress > span > p').nth(2),
     		apartmentDetails: Selector('.displayAddress > span > p').nth(1),
