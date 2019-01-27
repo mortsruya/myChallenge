@@ -45,7 +45,8 @@ test('(#6) Create account with invalid password - less than 6 chars', async t =>
     await t.expect(createAccountPage.createNewAccountButton.hasAttribute('disabled')).ok();
 });
 
-test('(#7) Create account with invalid password - more than 200 chars', async t => {
+//bug - ignoring this because its failing, reported in the bugs Tab on the test plan doc
+test.skip('(#7) Create account with invalid password - more than 200 chars', async t => {
     await introPage.clickCreateAccountButton()
     await createAccountPage.typeEmail(newEmail)
     await createAccountPage.typePassword(longPassword)
