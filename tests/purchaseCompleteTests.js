@@ -31,7 +31,7 @@ test('(#48,49) see my receipt and finish', async t => {
     await t
         .expect(purchaseCompletePage.purchaseCompleteMsg.exists).ok()
         .expect(purchaseCompletePage.addressDisplayed.zipcode.innerText).eql(shippingDetails.zipcode, 
-            "expected: " + shippingDetails.zipcode +" , but got: "+ purchaseCompletePage.addressDisplayed)
+            "expected: " + shippingDetails.zipcode +" , but got: "+ JSON.stringify(purchaseCompletePage.addressDisplayed))
         .expect(purchaseCompletePage.addressDisplayed.city.innerText).eql(shippingDetails.city)
         .expect(purchaseCompletePage.addressDisplayed.street.innerText).eql(shippingDetails.street)
         .expect(purchaseCompletePage.addressDisplayed.apartmentDetails.innerText).eql(shippingDetails.apartmentDetails)

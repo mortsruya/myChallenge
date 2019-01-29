@@ -72,7 +72,7 @@ export default class PaymentMethodPage {
 
 
     async navigateToPaymentMethodPageDef(){
-        await t.wait(5000)
+        await t.wait(10000)
         await this.navigateToPaymentMethodPage(
             'mail' + new Date().getTime() + '@gmail.com',
             '123456',
