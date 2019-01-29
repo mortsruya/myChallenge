@@ -25,19 +25,19 @@ test('(#31) pay with visa', async t => {
     await t.expect(purchaseCompletePage.purchaseCompleteMsg.exists).ok()
 });
 
-test('(#34) credit card fields should be mandatory-cvv', async t => {   
+test('(#34a) credit card fields should be mandatory-cvv', async t => {   
     await t.click(paymentMethodPage.creditCardTab)
     await paymentMethodPage.enterCreditCardNumber(paymentMethodPage.masterCard.number)
     await paymentMethodPage.enterCreditCardExpirationDate(paymentMethodPage.masterCard.expirationDate)
     await t.expect(paymentMethodPage.addAndPay.hasAttribute('disabled')).ok();
 });
-test('(#34) credit card fields should be mandatory-expirationDate', async t => {   
+test('(#34b) credit card fields should be mandatory-expirationDate', async t => {   
     await t.click(paymentMethodPage.creditCardTab)
     await paymentMethodPage.enterCreditCardNumber(paymentMethodPage.masterCard.number)
     await paymentMethodPage.enterCreditCardCvv(paymentMethodPage.masterCard.cvv)
     await t.expect(paymentMethodPage.addAndPay.hasAttribute('disabled')).ok();
 });
-test('(#34) credit card fields should be mandatory-number', async t => {   
+test('(#34c) credit card fields should be mandatory-number', async t => {   
     await t.click(paymentMethodPage.creditCardTab)
     await paymentMethodPage.enterCreditCardExpirationDate(paymentMethodPage.masterCard.expirationDate)
     await paymentMethodPage.enterCreditCardCvv(paymentMethodPage.masterCard.cvv)

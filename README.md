@@ -1,5 +1,5 @@
 ******************************
-***Natural Cycles Challange***
+****Natural Cycles Challange****
 ******************************
 
 Part One
